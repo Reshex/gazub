@@ -30,11 +30,47 @@ class IDIterator:
         self.id += 1
         if self.id >= 999999999:
             raise StopIteration
+        if len(input) > 9 or len(input) < 9:
+            print("Invalid input")
+            raise ValueError
         if check_id_valid(self.id):
             return(self.id)
+        else:
+            return self.__next__()
+
+
+def id_generator(id):
+    gen = (num for num in range(id, 999999999))
+    for g in gen:
+        if check_id_valid(g):
+            yield g
 
 
 if __name__ == "__main__":
-    iditer = IDIterator(123456780)
-    print(next(iditer))
-    print(next(iditer))
+    que = input("gen/it? ")
+    if que == "gen":
+        g = id_generator(123456782)
+        print(next(g))
+        print(next(g))
+        print(next(g))
+        print(next(g))
+        print(next(g))
+        print(next(g))
+        print(next(g))
+        print(next(g))
+        print(next(g))
+        print(next(g))
+
+    if que == "it":
+        input = input("Enter ID: ")
+        iditer = IDIterator(int(input))
+        print(next(iditer))
+        print(next(iditer))
+        print(next(iditer))
+        print(next(iditer))
+        print(next(iditer))
+        print(next(iditer))
+        print(next(iditer))
+        print(next(iditer))
+        print(next(iditer))
+        print(next(iditer))
