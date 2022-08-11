@@ -1,21 +1,18 @@
 def check_id_valid(id_number):
     sum2 = 0
-    for num in str(id_number): 
-        if num in str(id_number)[1::2]:
-            k = int(num) * 2
-        else:
-            num * 1
-            k = 0
+    for num in str(id_number)[1::2]:
+        k = int(num) * 2
         if int(k) > 9:
             sum = 0
             for digit in str(k):
                 sum += int(digit)
-                num = sum
-            sum2 += num
+            sum2 += sum
         else:
-            if k != 0:
-                num = int(k)
-            sum2 += int(num)
+            sum2 += k
+        k = 0
+    for num1 in str(id_number)[::2]:
+        num1 * 1
+        sum2 += int(num1)
     if sum2 % 10 == 0:
         return (True)
     else:
@@ -39,4 +36,5 @@ class IDIterator:
 
 if __name__ == "__main__":
     iditer = IDIterator(123456780)
-    print(check_id_valid(123456782))
+    print(next(iditer))
+    print(next(iditer))
